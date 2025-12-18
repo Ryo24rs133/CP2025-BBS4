@@ -497,6 +497,11 @@ $(function() {
         register(email, password);
     });
 
+    //ダークモードとライトモードの切り替え
+    $('#toggleTheme').on('click', () => {
+        document.documentElement.classList.toggle("dark");
+    });
+
     $('#logoutButton').on('click', logout);
 
     // 投稿一覧表示順序選択
@@ -560,6 +565,7 @@ window.addEventListener('unload', () => {
             </div>
         </div>
 
+        <button id = "toggleTheme" class="btn-toggle">ダークモード/ライトモード</button>
         <!-- 投稿一覧 -->
         <div class="posts-container">
             <h2>投稿一覧</h2>
