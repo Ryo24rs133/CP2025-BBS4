@@ -23,6 +23,9 @@ let currentEditId = null;
 // ログイン中のユーザ
 let currentUser = null;
 
+//ボタンの名前変更
+let btn_switching = 0;
+
 // メッセージ表示処理
 function showMessage(message, type = 'success') {
     const messageArea = $('#messageArea');
@@ -500,6 +503,16 @@ $(function() {
     //ダークモードとライトモードの切り替え
     $('#toggleTheme').on('click', () => {
         document.documentElement.classList.toggle("dark");
+        switch(btn_switching){
+            case 0:
+            $("#toggleTheme").html("ナイトモード");
+            btn_switching = 1;
+            break;
+            case 1:
+            $("#toggleTheme").html("ダークモード");
+            btn_switching = 0;
+            break;
+        }
     });
 
     $('#logoutButton').on('click', logout);
@@ -565,7 +578,7 @@ window.addEventListener('unload', () => {
             </div>
         </div>
 
-        <button id = "toggleTheme" class="btn-toggle">ダークモード/ライトモード</button>
+        <button id = "toggleTheme" class="btn-toggle">ダークモード</button>
         <!-- 投稿一覧 -->
         <div class="posts-container">
             <h2>投稿一覧</h2>
